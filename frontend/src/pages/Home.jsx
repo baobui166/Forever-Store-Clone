@@ -1,6 +1,7 @@
 import BesrSeller from "../components/BesrSeller";
 import Hero from "../components/Hero";
 import LatestCollection from "../components/LatestCollection";
+import NewSletterBox from "../components/NewSletterBox";
 import OurPolicy from "../components/OurPolicy";
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
       <LatestCollection />
       <BesrSeller />
       <OurPolicy />
+      <NewSletterBox />
     </div>
   );
 }
