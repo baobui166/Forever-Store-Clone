@@ -3,7 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
 
-function BesrSeller() {
+function BestSeller() {
   const { products } = useContext(ShopContext);
   const [bestSeller, setBestSeller] = useState([]);
 
@@ -38,4 +38,4 @@ function BesrSeller() {
   );
 }
 
-export default BesrSeller;
+export default BestSeller;

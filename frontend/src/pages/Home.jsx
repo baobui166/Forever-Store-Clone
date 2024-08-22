@@ -1,4 +1,4 @@
-import BesrSeller from "../components/BesrSeller";
+import BesrSeller from "../components/BestSeller";
 import Hero from "../components/Hero";
 import LatestCollection from "../components/LatestCollection";
 import NewSletterBox from "../components/NewSletterBox";
