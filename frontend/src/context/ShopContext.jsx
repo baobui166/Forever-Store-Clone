@@ -14,6 +14,7 @@ const ShopContextProvider = (props) => {
   const user = {
     email: "buichibao1601@gmai.com",
     password: "111",
+    name: "Bao Bui",
   };
 
   const addToCart = (itemId, size) => {
