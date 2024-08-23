@@ -11,6 +11,10 @@ const ShopContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
+  const user = {
+    email: "buichibao1601@gmai.com",
+    password: "111",
+  };
 
   const addToCart = (itemId, size) => {
     if (!size) {
@@ -51,6 +55,35 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
+  const updateQuantity = async (itemId, size, quantity) => {
+    if (quantity === 0 || quantity === null || quantity === "") {
+      toast.err("Quantity not valid!!!");
+      return;
+    }
+
+    let cartData = structuredClone(cartItems);
+
+    cartData[itemId][size] = quantity;
+    setCartItems(cartData);
+  };
+
+  const getCartAmount = () => {
+    let totalAmount = 0;
+    for (const items in cartItems) {
+      let itemInfo = products.find((item) => item._id === items);
+      for (const item in cartItems[items])
+        try {
+          if (cartItems[items][item] > 0) {
+            totalAmount += itemInfo.price * cartItems[items][item];
+          }
+        } catch (error) {
+          console.error("cant count total amount of cart");
+        }
+    }
+
+    return totalAmount;
+  };
+
   useEffect(() => {
     console.log(cartItems);
   }, [cartItems]);
@@ -67,6 +100,9 @@ const ShopContextProvider = (props) => {
     setCartItems,
     addToCart,
     getCartCount,
+    updateQuantity,
+    getCartAmount,
+    user,
   };
 
   return (
